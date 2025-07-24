@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Human Count - Ritual Machines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="slider.js"></script>
+</head>
+<body>
+  <nav class="navbar fixed">
+    <div class="nav-item left"><a href="index.html" class="nav-link">Home</a></div>
+    <div class="nav-item center">Ritual Machines</div>
+    <div class="nav-item right-group">
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+  </nav>
+  <main class="main-content human-count">
+    <h1 class="human-count-title">How many humans are you feeding with this beast?</h1>
+    <div class="human-count-sub">Scale the slider from “Me, Myself & Salad” to “Whole Block Party.”</div>
+    <div class="slider-container">
+      <span class="slider-label">0</span>
+      <input type="range" min="0" max="50" value="10" class="slider" id="humanSlider">
+      <span class="slider-label">50</span>
+    </div>
+    <div class="slider-value-container">
+      <span class="slider-value" id="sliderValue">10</span>
+    </div>
+    <div class="slider-desc" id="sliderDesc">“A medium cult”</div>
+    <button class="cta-btn human-btn" onclick="window.location.href='pod-deployed.html'">Sprout My Future</button>
+  </main>
+</body>
+</html> 
