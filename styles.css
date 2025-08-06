@@ -66,24 +66,26 @@ body {
 .main-content {
   max-width: 900px;
   margin: 0 auto;
-  padding: 40px 16px 0 16px;
+  padding: 20px 16px 0 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 72px;
+  margin-top: 60px;
+  min-height: calc(100vh - 60px);
+  justify-content: center;
 }
 
 .welcome {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  margin-top: 32px;
+  margin-top: 0;
   margin-bottom: 8px;
   text-align: center;
 }
 .subtitle {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 400;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
   text-align: center;
 }
 
@@ -93,28 +95,28 @@ body {
   height: 60px;
   background: repeating-linear-gradient(90deg, #256029 0 2px, transparent 2px 20px);
   opacity: 0.3;
-  margin: 0 auto 32px auto;
+  margin: 0 auto 24px auto;
 }
 .infographic-top {
-  margin-bottom: 64px;
+  margin-bottom: 48px;
 }
 .infographic-bottom {
-  margin-top: 64px;
-  margin-bottom: 32px;
+  margin-top: 48px;
+  margin-bottom: 24px;
 }
 
 .game-feel {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
 .mission {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 400;
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
   color: #256029;
 }
 
@@ -123,36 +125,36 @@ body {
   color: #256029;
   border: none;
   border-radius: 28px;
-  padding: 18px 40px;
-  font-size: 1.3rem;
+  padding: 16px 36px;
+  font-size: 1.2rem;
   font-weight: 500;
   cursor: pointer;
   transition: background 0.2s;
-  margin-bottom: 40px;
+  margin-bottom: 0;
 }
 .cta-btn:hover {
   background: #6fd47e;
 }
 
 .about-title {
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 600;
-  margin-top: 12px;
-  margin-bottom: 32px;
+  margin-top: 0;
+  margin-bottom: 20px;
   text-align: center;
 }
 .about-content {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: #256029;
   width: 100%;
   padding-left: 32px;
   padding-right: 32px;
   margin: 0;
-  line-height: 1.7;
+  line-height: 1.6;
   box-sizing: border-box;
 }
 .about-content ul {
-  margin: 16px 0 16px 32px;
+  margin: 12px 0 12px 32px;
 }
 .bold-green {
   font-weight: 600;
@@ -161,14 +163,30 @@ body {
 .about-highlight {
   font-weight: 700;
   color: #256029;
-  margin-top: 32px;
-  font-size: 1.2rem;
+  margin-top: 20px;
+  font-size: 1.1rem;
+}
+
+.contact-info {
+  margin-top: 20px;
+  text-align: left;
+}
+.contact-info p {
+  margin: 8px 0;
+  font-size: 1rem;
+}
+.contact-info a {
+  color: #256029;
+  text-decoration: none;
+}
+.contact-info a:hover {
+  text-decoration: underline;
 }
 
 .pod-select-title {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
   text-align: center;
 }
 .pod-select-sub {
@@ -177,10 +195,10 @@ body {
 .pod-options {
   display: flex;
   justify-content: space-between;
-  gap: 32px;
+  gap: 24px;
   width: 100%;
-  margin-top: 32px;
-  margin-bottom: 32px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .pod-option {
   flex: 1;
@@ -190,16 +208,16 @@ body {
   min-width: 180px;
 }
 .pod-label {
-  font-size: 1.1rem;
-  margin-bottom: 24px;
+  font-size: 1rem;
+  margin-bottom: 16px;
   text-align: center;
 }
 .pod-img {
-  width: 220px;
+  width: 200px;
   height: auto;
   max-width: 100%;
-  max-height: 340px;
-  margin-bottom: 24px;
+  max-height: 300px;
+  margin-bottom: 16px;
   margin-left: 80px;
   background: none;
   background-size: contain;
@@ -220,14 +238,14 @@ body {
 }
 .pod-btn {
   width: 90%;
-  max-width: 260px;
+  max-width: 240px;
   margin-top: auto;
 }
 @media (max-width: 900px) {
   .pod-options {
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 32px;
   }
   .pod-option {
     width: 100%;
@@ -248,9 +266,9 @@ body {
 }
 
 .color-choice-title {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
   text-align: center;
 }
 .color-choice-sub {
@@ -259,10 +277,10 @@ body {
 .color-options {
   display: flex;
   justify-content: space-between;
-  gap: 48px;
+  gap: 40px;
   width: 100%;
-  margin-top: 32px;
-  margin-bottom: 32px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .color-option {
   flex: 1;
@@ -272,9 +290,9 @@ body {
   min-width: 180px;
 }
 .color-label {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   text-align: center;
 }
 .color-label.red {
@@ -284,11 +302,11 @@ body {
   color: #256029;
 }
 .color-img {
-  width: 220px;
+  width: 200px;
   height: auto;
   max-width: 100%;
-  max-height: 340px;
-  margin-bottom: 24px;
+  max-height: 300px;
+  margin-bottom: 16px;
   margin-left: 80px;
   background: none;
   display: block;
@@ -304,20 +322,20 @@ body {
   }
 }
 .color-desc {
-  font-size: 1.05rem;
-  margin-bottom: 18px;
+  font-size: 1rem;
+  margin-bottom: 12px;
   text-align: center;
 }
 .color-btn {
   width: 90%;
-  max-width: 260px;
+  max-width: 240px;
   margin-top: auto;
 }
 @media (max-width: 900px) {
   .color-options {
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 32px;
   }
   .color-option {
     width: 100%;
@@ -326,14 +344,14 @@ body {
 } 
 
 .human-count-title {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   text-align: center;
 }
 .human-count-sub {
-  font-size: 1.2rem;
-  margin-bottom: 32px;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
   text-align: center;
 }
 .slider-container {
@@ -342,10 +360,10 @@ body {
   justify-content: center;
   gap: 16px;
   width: 100%;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .slider-label {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #256029;
 }
 .slider {
@@ -364,27 +382,27 @@ body {
 }
 .slider-value {
   display: inline-block;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
   color: #256029;
   border: 2px solid #8ee09b;
   border-radius: 50%;
-  width: 64px;
-  height: 64px;
-  line-height: 64px;
+  width: 56px;
+  height: 56px;
+  line-height: 56px;
   text-align: center;
   background: #fff;
   margin: 0 12px;
 }
 .slider-desc {
   text-align: center;
-  font-size: 1.1rem;
-  margin-bottom: 32px;
+  font-size: 1rem;
+  margin-bottom: 20px;
   color: #256029;
 }
 .human-btn {
   width: 90%;
-  max-width: 320px;
+  max-width: 300px;
 }
 @media (max-width: 600px) {
   .slider {
@@ -405,17 +423,17 @@ body {
 } 
 
 .pod-deployed-title {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
   text-align: center;
 }
 .pod-views {
   display: flex;
   justify-content: space-between;
-  gap: 32px;
+  gap: 24px;
   width: 100%;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 .pod-view {
   flex: 1;
@@ -425,12 +443,12 @@ body {
   min-width: 120px;
 }
 .pod-view-img {
-  width: 220px;
+  width: 200px;
   height: auto;
   max-width: 100%;
-  max-height: 340px;
-  margin-top: 40px;
-  margin-bottom: 12px;
+  max-height: 300px;
+  margin-top: 20px;
+  margin-bottom: 8px;
   margin-left: 0px;
   background: none;
   display: block;
@@ -446,31 +464,31 @@ body {
   }
 }
 .pod-view-label {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   margin-bottom: 4px;
   text-align: center;
   margin-top: 0;
 }
 .pod-view-desc {
-  font-size: 1rem;
+  font-size: 0.95rem;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   margin-top: 0;
   line-height: 1.4;
 }
 .pod-summary {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: #256029;
   text-align: center;
-  margin-top: 32px;
+  margin-top: 20px;
 }
 @media (max-width: 900px) {
   .pod-views {
     flex-direction: column;
     align-items: center;
-    gap: 32px;
+    gap: 24px;
   }
   .pod-view {
     width: 100%;
@@ -484,15 +502,15 @@ body {
   align-items: center;
 }
 .contact-title {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
   text-align: center;
 }
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   width: 100%;
   max-width: 400px;
 }
@@ -534,9 +552,67 @@ body {
 } 
 
 .about-page.main-content {
-  margin-top: 32px;
+  margin-top: 20px;
   max-width: none;
   align-items: stretch;
   padding-left: 0;
   padding-right: 0;
+  justify-content: flex-start;
+} 
+
+/* Desktop optimization for better fit */
+@media (min-width: 1024px) {
+  .main-content {
+    margin-top: 50px;
+    padding: 16px 16px 0 16px;
+  }
+  
+  .welcome {
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 6px;
+  }
+  
+  .subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+  
+  .game-feel {
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+  }
+  
+  .mission {
+    font-size: 1.3rem;
+    margin-bottom: 24px;
+  }
+  
+  .about-title {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+  }
+  
+  .about-content {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .about-content ul {
+    margin: 8px 0 8px 32px;
+  }
+  
+  .about-highlight {
+    margin-top: 16px;
+    font-size: 1rem;
+  }
+  
+  .contact-info {
+    margin-top: 16px;
+  }
+  
+  .contact-info p {
+    margin: 6px 0;
+    font-size: 0.95rem;
+  }
 } 
