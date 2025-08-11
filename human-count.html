@@ -9,6 +9,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script defer src="slider.js"></script>
+  <script>
+    function deployPod() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const podSize = urlParams.get('podSize') || 'medium';
+      const color = urlParams.get('color') || 'blue';
+      const humanCount = document.getElementById('humanSlider').value;
+      
+      const finalUrl = `pod-deployed.html?podSize=${podSize}&color=${color}&humanCount=${humanCount}`;
+      window.location.href = finalUrl;
+    }
+  </script>
 </head>
 <body>
   <nav class="navbar fixed">
@@ -30,7 +41,7 @@
       <span class="slider-value" id="sliderValue">10</span>
     </div>
     <div class="slider-desc" id="sliderDesc">“A medium cult”</div>
-    <button class="cta-btn human-btn" onclick="window.location.href='pod-deployed.html'">Sprout My Future</button>
+    <button class="cta-btn human-btn" onclick="deployPod()">Sprout My Future</button>
   </main>
 </body>
 </html> 

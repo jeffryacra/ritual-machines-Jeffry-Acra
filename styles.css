@@ -194,31 +194,32 @@ body {
 }
 .pod-options {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 24px;
   width: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px auto;
+  flex-wrap: nowrap;
 }
 .pod-option {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 180px;
-}
-.pod-label {
-  font-size: 1rem;
-  margin-bottom: 16px;
+  min-width: 320px;
   text-align: center;
 }
+.pod-label {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}
 .pod-img {
-  width: 200px;
-  height: auto;
+  width: 300px;
+  height: 300px;
   max-width: 100%;
-  max-height: 300px;
-  margin-bottom: 16px;
-  margin-left: 80px;
+  max-height: 400px;
+  margin: 0 auto 20px auto;
   background: none;
   background-size: contain;
   background-repeat: no-repeat;
@@ -226,15 +227,22 @@ body {
   display: block;
   box-shadow: none;
   border-radius: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.pod-img:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
 }
 .pod-img-small {
-  background-image: url('images/image (2).png');
+  background-image: url('images/s1.png');
 }
 .pod-img-medium {
-  background-image: url('images/image (3).png');
+  background-image: url('images/s2.png');
 }
 .pod-img-large {
-  background-image: url('images/image (4).png');
+  background-image: url('images/s3.png');
 }
 .pod-btn {
   width: 90%;
@@ -252,10 +260,11 @@ body {
     min-width: unset;
   }
   .pod-img {
-    width: 180px;
+    width: 250px;
+    height: 250px;
     max-width: 90vw;
-    max-height: 180px;
-    margin-left: 12px;
+    max-height: 300px;
+    margin: 0 auto 20px auto;
   }
 }
 @media (max-width: 600px) {
@@ -303,22 +312,40 @@ body {
 }
 .color-img {
   width: 200px;
-  height: auto;
+  height: 200px;
   max-width: 100%;
   max-height: 300px;
-  margin-bottom: 16px;
-  margin-left: 80px;
+  margin: 0 auto 16px auto;
   background: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   display: block;
   box-shadow: none;
   border-radius: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.color-img:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.color-img-red {
+  background-image: url('images/rp.png');
+}
+
+.color-img-blue {
+  background-image: url('images/bp.png');
 }
 @media (max-width: 900px) {
   .color-img {
     width: 180px;
+    height: 180px;
     max-width: 90vw;
     max-height: 180px;
-    margin-left: 12px;
+    margin: 0 auto 16px auto;
   }
 }
 .color-desc {
@@ -428,6 +455,78 @@ body {
   margin-bottom: 20px;
   text-align: center;
 }
+
+/* 3D Model Viewer Styles */
+.model-viewer-container {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.model-viewer-label {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #256029;
+}
+
+.model-viewer-desc {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.model-viewer {
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  margin: 0 auto;
+  border: 2px solid #8ee09b;
+  border-radius: 12px;
+  background: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+}
+
+.model-controls {
+  margin-top: 12px;
+}
+
+.control-hint {
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Responsive styles for 3D viewer */
+@media (max-width: 900px) {
+  .model-viewer {
+    max-width: 90vw;
+    height: 300px;
+  }
+  
+  .model-viewer-label {
+    font-size: 1.2rem;
+  }
+  
+  .model-viewer-desc {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .model-viewer {
+    max-width: 95vw;
+    height: 250px;
+  }
+  
+  .model-viewer-label {
+    font-size: 1.1rem;
+  }
+  
+  .control-hint {
+    font-size: 0.8rem;
+  }
+}
 .pod-views {
   display: flex;
   justify-content: space-between;
@@ -478,11 +577,24 @@ body {
   line-height: 1.4;
 }
 .pod-summary {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 400;
   color: #256029;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 32px;
+  background: #f8f9fa;
+  padding: 24px;
+  border-radius: 12px;
+  border: 2px solid #8ee09b;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.pod-summary strong {
+  color: #17401a;
+  font-weight: 600;
 }
 @media (max-width: 900px) {
   .pod-views {
@@ -552,7 +664,7 @@ body {
 } 
 
 .about-page.main-content {
-  margin-top: 20px;
+  margin-top: 60px;
   max-width: none;
   align-items: stretch;
   padding-left: 0;
@@ -614,5 +726,107 @@ body {
   .contact-info p {
     margin: 6px 0;
     font-size: 0.95rem;
+  }
+} 
+
+/* New Layout for Pod Deployed Page - All on one line */
+/* New Vertical Layout for Pod Deployed Page */
+.pod-vertical-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  margin: 40px 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Update pod-view styles for the new vertical layout */
+.pod-vertical-container .pod-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.pod-vertical-container .pod-view-img {
+  width: 100%;
+  height: auto;
+  max-width: 700px;
+  margin-bottom: 16px;
+  background: none;
+  display: block;
+  box-shadow: none;
+  border-radius: 0;
+  object-fit: contain; /* Show full image without cropping */
+}
+
+/* Hide plan, elevation, and render images until JavaScript loads them */
+.pod-vertical-container .pod-view .pod-view-img[src=""] {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pod-vertical-container .pod-view .pod-view-img[src]:not([src=""]) {
+  opacity: 1;
+}
+
+.pod-vertical-container .pod-view-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.pod-vertical-container .pod-view-desc {
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1.4;
+  color: #666;
+}
+
+/* Update model viewer for vertical layout */
+.pod-vertical-container .model-viewer-container {
+  margin: 0;
+  width: 100%;
+}
+
+.pod-vertical-container .model-viewer {
+  width: 100%;
+  max-width: 700px;
+  height: 350px;
+}
+
+/* Responsive design for the vertical layout */
+@media (max-width: 900px) {
+  .pod-vertical-container {
+    gap: 30px;
+    max-width: 90%;
+  }
+  
+  .pod-vertical-container .pod-view-img {
+    max-width: 600px;
+  }
+  
+  .pod-vertical-container .model-viewer {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 600px) {
+  .pod-vertical-container {
+    gap: 25px;
+    max-width: 95%;
+  }
+  
+  .pod-vertical-container .pod-view-img {
+    max-width: 500px;
+  }
+  
+  .pod-vertical-container .model-viewer {
+    max-width: 500px;
   }
 } 

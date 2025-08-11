@@ -8,6 +8,46 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module">
+    console.log('ES6 module script starting...');
+    
+    import * as THREE from 'three';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    
+    console.log('Three.js modules imported successfully');
+    
+    // Make them globally available
+    window.THREE = THREE;
+    window.GLTFLoader = GLTFLoader;
+    window.OrbitControls = OrbitControls;
+    
+    console.log('Modules made global. THREE:', typeof THREE, 'GLTFLoader:', typeof GLTFLoader, 'OrbitControls:', typeof OrbitControls);
+    
+    // Now load the choice tracker after modules are ready
+    const script = document.createElement('script');
+    script.src = 'choice-tracker.js';
+    script.defer = true;
+    
+    script.onload = function() {
+      console.log('choice-tracker.js loaded successfully');
+    };
+    
+    script.onerror = function() {
+      console.error('Failed to load choice-tracker.js');
+    };
+    
+    document.head.appendChild(script);
+    console.log('choice-tracker.js script element added to head');
+  </script>
 </head>
 <body>
   <nav class="navbar fixed">
@@ -19,29 +59,43 @@
   </nav>
   <main class="main-content pod-deployed">
     <h1 class="pod-deployed-title">Your Urban Ritual Pod Has Been Deployed.</h1>
-    <div class="pod-views">
+    
+    <!-- Vertical layout: 3D model first, then images, then stats -->
+    <div class="pod-vertical-container">
+      <!-- 1. 3D Model Viewer -->
+      <div class="model-viewer-container">
+        <div class="model-viewer-label">Your Custom Pod Configuration</div>
+        <div class="model-viewer-desc">Interactive 3D model of your deployed urban farming unit</div>
+        <div id="model-viewer" class="model-viewer"></div>
+        <div class="model-controls">
+          <div class="control-hint">Drag to rotate • Scroll to zoom • Right-click to pan</div>
+        </div>
+      </div>
+
+      <!-- 2. Plan View -->
       <div class="pod-view">
-        <img class="pod-view-img" src="images/image (9).png" alt="Plan View">
+        <img class="pod-view-img" src="" alt="Plan View">
         <div class="pod-view-label">Plan View</div>
         <div class="pod-view-desc">Are you a bird? Are you a plane?<br>Then why do you want to see it from there?</div>
       </div>
+
+      <!-- 3. Elevation -->
       <div class="pod-view">
-        <img class="pod-view-img" src="images/image (8).png" alt="Elevation">
+        <img class="pod-view-img" src="" alt="Elevation">
         <div class="pod-view-label">Elevation</div>
         <div class="pod-view-desc">For all your zoning appeal arguments</div>
       </div>
+
+      <!-- 4. Render -->
       <div class="pod-view">
-        <img class="pod-view-img" src="images/image (7).png" alt="3D Model">
-        <div class="pod-view-label">3D Model</div>
-        <div class="pod-view-desc">Orbit around your green cyborg beast</div>
-      </div>
-      <div class="pod-view">
-        <img class="pod-view-img" src="images/image (12).png" alt="Render">
+        <img class="pod-view-img" src="" alt="Render">
         <div class="pod-view-label">Render</div>
         <div class="pod-view-desc">Cinematic shot,<br>if we're being real…</div>
       </div>
     </div>
-    <div class="pod-summary">Your unit will grow approx. X kg of greens/month. It’ll save X liters of water and emit X good vibes per week</div>
+
+    <!-- 5. Stats at the bottom -->
+    <div class="pod-summary">Your unit will grow approx. X kg of greens/month. It'll save X liters of water and emit X good vibes per week</div>
   </main>
 </body>
 </html> 

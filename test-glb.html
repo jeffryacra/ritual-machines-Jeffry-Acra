@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLB Test - AERA</title>
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; }
+        #test-container { width: 100%; height: 400px; border: 2px solid #ccc; }
+        .info { padding: 20px; background: #f0f0f0; }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module">
+      import * as THREE from 'three';
+      import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+      import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+      
+      // Make them globally available
+      window.THREE = THREE;
+      window.GLTFLoader = GLTFLoader;
+      window.OrbitControls = OrbitControls;
+    </script>
+</head>
+<body>
+    <div class="info">
+        <h2>GLB File Test</h2>
+        <p>Testing if GLB files can be loaded...</p>
+        <button onclick="testGLB('1.1.glb')">Test 1.1.glb</button>
+        <button onclick="testGLB('2.1.glb')">Test 2.1.glb</button>
+        <button onclick="testGLB('3.1.glb')">Test 3.1.glb</button>
+        <div id="status"></div>
+    </div>
+    <div id="test-container"></div>
+
+    <script>
+        function testGLB(filename) {
+            const status = document.getElementById('status');
+            const container = document.getElementById('test-container');
+            
+            status.innerHTML = `Testing ${filename}...`;
+            container.innerHTML = '';
+
+            if (typeof THREE === 'undefined') {
+                status.innerHTML = 'ERROR: Three.js not loaded!';
+                return;
+            }
+
+            try {
+                // Create scene
+                const scene = new THREE.Scene();
+                scene.background = new THREE.Color(0xf0f0f0);
+
+                // Create camera
+                const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+                camera.position.set(5, 5, 5);
+
+                // Create renderer
+                const renderer = new THREE.WebGLRenderer({ antialias: true });
+                renderer.setSize(container.clientWidth, container.clientHeight);
+                container.appendChild(renderer.domElement);
+
+                // Add lights
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+                scene.add(ambientLight);
+
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+                directionalLight.position.set(10, 10, 5);
+                scene.add(directionalLight);
+
+                // Add controls
+                const controls = new OrbitControls(camera, renderer.domElement);
+
+                // Load GLB
+                const loader = new GLTFLoader();
+                
+                loader.load(
+                    filename,
+                    function (gltf) {
+                        status.innerHTML = `SUCCESS: ${filename} loaded!`;
+                        const model = gltf.scene;
+                        
+                        // Center and scale
+                        const box = new THREE.Box3().setFromObject(model);
+                        const center = box.getCenter(new THREE.Vector3());
+                        const size = box.getSize(new THREE.Vector3());
+                        
+                        const maxDim = Math.max(size.x, size.y, size.z);
+                        const scale = 3 / maxDim;
+                        model.scale.setScalar(scale);
+                        model.position.sub(center.multiplyScalar(scale));
+                        
+                        scene.add(model);
+                    },
+                    function (xhr) {
+                        const progress = (xhr.loaded / xhr.total) * 100;
+                        status.innerHTML = `Loading ${filename}: ${Math.round(progress)}%`;
+                    },
+                    function (error) {
+                        status.innerHTML = `ERROR loading ${filename}: ${error.message}`;
+                        console.error('Error:', error);
+                    }
+                );
+
+                // Animation loop
+                function animate() {
+                    requestAnimationFrame(animate);
+                    controls.update();
+                    renderer.render(scene, camera);
+                }
+                animate();
+
+            } catch (error) {
+                status.innerHTML = `ERROR setting up scene: ${error.message}`;
+                console.error('Setup error:', error);
+            }
+        }
+
+        // Test on page load
+        window.addEventListener('load', function() {
+            if (typeof THREE !== 'undefined') {
+                document.getElementById('status').innerHTML = 'Three.js loaded successfully. Click a button to test GLB files.';
+            } else {
+                document.getElementById('status').innerHTML = 'ERROR: Three.js failed to load!';
+            }
+        });
+    </script>
+</body>
+</html> 
